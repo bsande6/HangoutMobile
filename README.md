@@ -2,8 +2,6 @@
 
 CPSC 4720 Team Project, Clemson University
 
-Kenley Shaw, Brad Sanders, Noah Cooley-Cannon, Samuel Hagen
-
 
 Teamwork Policy: Communication is a MUST.
 
