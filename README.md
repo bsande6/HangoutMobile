@@ -1,9 +1,5 @@
 # HangoutApp
 
-CPSC 4720 Team Project, Clemson University
-
-
-Teamwork Policy: Communication is a MUST.
 
 <div id="top"></div>
 
@@ -62,9 +58,14 @@ Teamwork Policy: Communication is a MUST.
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Determine which friends are available to do something. Users are able to input their schedule and report their current status (busy, willing to do something, wanting to travel, etc).
+Determine which friends are available to do something. Users are able to input their schedule and report their current status (busy, willing to do something, wanting to travel, etc). 
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
+Why not text your friends instead? Or check Facebook status? 
+Hangout App makes it much easier to get an organized view of who is available without the hassle of keeping up with messages.
+
+In this app, users can set their status depending on their availability in addition to viewing the status of their friends list. Add friends directly from your contacts
+
+This project is for CPSC 4720 at Clemson University.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
