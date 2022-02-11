@@ -5,7 +5,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/kenleyshaw/HangoutApp">
     <img src="HangoutAppLogo.png" alt="Logo" width="100" height="140">
   </a>
 
@@ -14,14 +14,11 @@
   <p align="center">
     Determine which friends are available to do something. Users are able to input their schedule and report their current status (busy, willing to do something, wanting to travel, etc).
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/kenleyshaw/repo_name">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/kenleyshaw/HangoutApp/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/kenleyshaw/HangoutApp/issues">Request Feature</a>
   </p>
 </div>
 
@@ -82,12 +79,11 @@ This project is for CPSC 4720 at Clemson University.
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+to add instructions on setting up your project locally
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+to list things you need to use the software
 
 ### Installation
 
@@ -99,7 +95,7 @@ Install instructions here
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+to add screenshots, code examples and demos
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -109,6 +105,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
+to add later:
 - [ ] Feature 1
 - [ ] Feature 2
 - [ ] Feature 3
@@ -145,21 +142,16 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/kenleyshaw/HangoutApp](https://github.com/kenleyshaw/HangoutApp)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 ## Acknowledgments
 
-Kenley Shaw, Brad Sanders, Noah Cooley-Cannon, Samuel Hagen
-
-* []()
-* []()
-* []()
+* []()Kenley Shaw
+* []()Brad Sanders
+* []()Noah Cooley-Cannon
+* []()Samuel Hagan
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
