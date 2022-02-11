@@ -54,6 +54,7 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+to add wireframe/figma screenshot here
 
 Determine which friends are available to do something. Users are able to input their schedule and report their current status (busy, willing to do something, wanting to travel, etc). 
 
