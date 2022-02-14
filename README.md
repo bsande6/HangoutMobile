@@ -53,6 +53,8 @@
 
 ## About The Project
 
+<img src="D93D3B63-D8C9-4BAE-9D23-BDC51E92C83C.jpeg" alt="Logo" width="100" height="140">
+
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 to add wireframe/figma screenshot here
 
