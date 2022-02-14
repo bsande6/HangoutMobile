@@ -53,7 +53,7 @@
 
 ## About The Project
 
-<img src="D93D3B63-D8C9-4BAE-9D23-BDC51E92C83C.jpeg" alt="Logo" width="150" height="100">
+<img src="D93D3B63-D8C9-4BAE-9D23-BDC51E92C83C.jpeg" alt="Logo" width="200" height="100">
 
 Determine which friends are available to do something. Users are able to input their schedule and report their current status (busy, willing to do something, wanting to travel, etc). 
 
