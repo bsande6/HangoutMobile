@@ -143,6 +143,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Project Link: [https://github.com/kenleyshaw/HangoutApp](https://github.com/kenleyshaw/HangoutApp)
+
 Email: hangoutappcpsc@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
