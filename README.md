@@ -152,7 +152,7 @@ Email: hangoutappcpsc@gmail.com
 
 * []()Kenley Shaw
 * []()Brad Sanders
-* []()Noah Cooley-Cannon
+* []()Noah Cooley-Cannon - Scrum Master
 * []()Samuel Hagan
 
 <p align="right">(<a href="#top">back to top</a>)</p>
