@@ -68,6 +68,18 @@ This project is for CPSC 4720 at Clemson University.
 
 
 
+## Wireframing
+
+<img src="Login.png" alt="login">
+<img src="Register.png" alt="register">
+<img src="Hobbies.png" alt="hobbies">
+<img src="Location Set.png" alt="location">
+<img src="Dashboard.png" alt="dashboard">
+<img src="Friends List.png" alt="friendslist">
+<img src="Profile.png" alt="profile">
+<img src="Friend Groups (dashboard page 3?).png" alt="groups">
+
+
 ### Built With
 
 * [React.js](https://reactjs.org/)
