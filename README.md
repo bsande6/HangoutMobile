@@ -70,7 +70,7 @@ This project is for CPSC 4720 at Clemson University.
 
 ## Wireframing
 
-<img src="Login.png" alt="login">
+<img src="HangoutApp Wireframe/Login.png" alt="login">
 <img src="Register.png" alt="register">
 <img src="Hobbies.png" alt="hobbies">
 <img src="Location Set.png" alt="location">
