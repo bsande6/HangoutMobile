@@ -77,7 +77,7 @@ This project is for CPSC 4720 at Clemson University.
 <img src="HangoutApp Wireframe/Dashboard.png" alt="dashboard">
 <img src="HangoutApp Wireframe/Friends List.png" alt="friendslist">
 <img src="HangoutApp Wireframe/Profile.png" alt="profile">
-<img src="HangoutApp Wireframe/'Friend Groups (dashboard page 3?).png'" alt="groups">
+<img src="HangoutApp Wireframe / Friend Groups (dashboard page 3?).png" alt="groups">
 
 
 ### Built With
