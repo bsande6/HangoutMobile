@@ -71,13 +71,13 @@ This project is for CPSC 4720 at Clemson University.
 ## Wireframing
 
 <img src="HangoutApp Wireframe/Login.png" alt="login">
-<img src="Register.png" alt="register">
-<img src="Hobbies.png" alt="hobbies">
-<img src="Location Set.png" alt="location">
-<img src="Dashboard.png" alt="dashboard">
-<img src="Friends List.png" alt="friendslist">
-<img src="Profile.png" alt="profile">
-<img src="Friend Groups (dashboard page 3?).png" alt="groups">
+<img src="HangoutApp Wireframe/Register.png" alt="register">
+<img src="HangoutApp Wireframe/Hobbies.png" alt="hobbies">
+<img src="HangoutApp Wireframe/Location Set.png" alt="location">
+<img src="HangoutApp Wireframe/Dashboard.png" alt="dashboard">
+<img src="HangoutApp Wireframe/Friends List.png" alt="friendslist">
+<img src="HangoutApp Wireframe/Profile.png" alt="profile">
+<img src="HangoutApp Wireframe/Friend Groups (dashboard page 3?).png" alt="groups">
 
 
 ### Built With
