@@ -46,7 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_number = PhoneField(max_length = 10)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    #friends = models.ManytoManyField("User", blank=True)
+    friends = models.ManyToManyField("User", blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'firstname', 'lastname']
@@ -56,19 +56,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return f"{self.email}"
 
-# class User(AbstractUser):
-#     
-#     username = models.CharField(db_index=True, max_length=255, unique=True)
-#     email = models.EmailField(db_index=True, unique=True,  null=True, blank=True)
-#     # firstname = forms.CharField(label='Enter First Name', min_length=1, max_length=50)
-#     # lastname = forms.CharField(label='Enter Last Name', min_length=1, max_length=50)
-#     # phone_number = forms.PhoneField(label='Enter Phone Number', min_length=10, max_length=10)
-
-#     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = ['username']
-
-#     objects = UserManager()
-
-#     def __str__(self):
-#         return f"{self.email}"
 

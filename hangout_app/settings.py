@@ -30,6 +30,12 @@ ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'hangout_app_user.User'
 # Application definition
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hangout_app.user',
     'hangout_app.auth',
+    'hangout_app.friends',
     'rest_framework',
 ]
 

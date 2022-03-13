@@ -15,11 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from hangout_app.auth import views
+from hangout_app.auth import views as auth_views
+from hangout_app.friends import views as friend_views
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     #url(r'^register/$', views.register, name='register'),
-    re_path(r'^api/auth/register/$', views.registerview),
+    re_path(r'^api/auth/register/$', auth_views.registerview),
+    re_path(r'^api/auth/login/$', auth_views.loginview),
+    path('send_friend_request/<int:userID>/', friend_views.send_friend_request),
+    path('accept_friend_request/<int:requestID>/', friend_views.accept_friend_request),
 ]
+

@@ -1,27 +1,42 @@
 from rest_framework import serializers
-#from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-#from rest_framework_simplejwt.settings import api_settings
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.settings import api_settings
 from django.contrib.auth.models import update_last_login
+from django.contrib.auth import authenticate, login
 from django.core.exceptions import ObjectDoesNotExist
 
 from hangout_app.user.serializers import UserSerializer
 from hangout_app.user.models import User
 
-# class LoginSerializer(TokenObtainPairSerializer):
+class LoginSerializer(serializers.Serializer):
+    email = serializers.CharField(max_length=255)
+    password = serializers.CharField(
+        label= ("Password"),
+        style={'input_type': 'password'},
+        trim_whitespace=False,
+        max_length=128,
+    )
 
-#     def validate(self, attrs):
-#         data = super().validate(attrs)
+    def validate(self, data):
+        username = data.get('email')
+        password = data.get('password')
 
-#         refresh = self.get_token(self.user)
+        if username and password:
+            user = authenticate(request=self.context.get('request'),
+                                username=username, password=password)
 
-#         data['user'] = UserSerializer(self.user).data
-#         data['refresh'] = str(refresh)
-#         data['access'] = str(refresh.access_token)
+            # if user and  user.is_active:
+            #     login(request, data['user'])
+            #     print(user.is_authenticated, request.user.is_authenticated)
+            if not user:
+                msg = ('Unable to log in with provided credentials.')
+                raise serializers.ValidationError(msg, code='authorization')
+        else:
+            msg = ('Must include "username" and "password".')
+            raise serializers.ValidationError(msg, code='authorization')
 
-#         if api_settings.UPDATE_LAST_LOGIN:
-#             update_last_login(None, self.user)
-
-#         return data
+        data['user'] = user
+        return data
 
 
 class RegisterSerializer(UserSerializer):
