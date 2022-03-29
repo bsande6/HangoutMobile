@@ -12,6 +12,7 @@ import EditProfile from "./components/editprofile";
 import Hobbies from "./components/hobbies";
 import Location from "./components/location";
 import Feed from "./components/feed";
+import Post from "./components/post";
 
 
 function App() {
@@ -54,8 +55,7 @@ function App() {
           <Route path="/editprofile" element={<EditProfile/>} />
           <Route path="/hobbies" element={<Hobbies/>} />
           <Route path="/location" element={<Location/>} />
-          <Route path="/feed" element={<Feed/>} />
-
+          <Route path="/post" element={<Post/>} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
