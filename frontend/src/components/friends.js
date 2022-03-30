@@ -22,6 +22,19 @@ const Friends = (props) => {
           </Button>
         );
       }
+    },
+    {
+      field: "Remove Friend",
+      renderCell: (cellValues) => {
+        return (
+          <Button
+            variant="contained"
+            color="secondary"
+          >
+            Remove
+          </Button>
+        );
+      }
     }
   ];
 
