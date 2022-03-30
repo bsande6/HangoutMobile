@@ -56,6 +56,7 @@ function App() {
           <Route path="/hobbies" element={<Hobbies/>} />
           <Route path="/location" element={<Location/>} />
           <Route path="/post" element={<Post/>} />
+          <Route path="/feed" element={<Feed/>} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
