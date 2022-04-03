@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login
 
 @api_view(['POST'])
 def registerview(request):
+    print("reg")
     if request.method == 'POST':
         serializer = RegisterSerializer(data=request.data,context={'request': request})
         if serializer.is_valid():
