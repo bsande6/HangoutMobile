@@ -12,9 +12,9 @@ from django.core import serializers
 def get_friends_list(request):
     owner = request.user.get_username()
     try:
-        user = User.objects.get(username=owner)
+        user = User.objects.get(username="user")
         queryset = user.friends.all()
-        friends = serializers.serialize("json", queryset, fields=['username', 'email'])
+        friends = serializers.serialize("json", queryset, fields=['username', 'email', 'firstname', 'lastname'])
 
         return HttpResponse(friends, status=200)
     
