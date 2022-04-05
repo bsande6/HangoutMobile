@@ -4,16 +4,15 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import Register from "./components/register";
-import Login from "./components/login";
-import Profile from "./components/profile";
-import Friends from "./components/friends";
-import EditProfile from "./components/editprofile";
-import Hobbies from "./components/hobbies";
-import Location from "./components/location";
-import Feed from "./components/feed";
-import Post from "./components/post";
-
+import Register from "./components/begin/register";
+import Login from "./components/begin/login";
+import Profile from "./components/homepage/profile";
+import Friends from "./components/homepage/friends";
+import EditProfile from "./components/settings/editprofile";
+import Hobbies from "./components/settings/hobbies";
+import Location from "./components/settings/location";
+import Feed from "./components/homepage/feed";
+import Post from "./components/status/post";
 
 function App() {
   const theme = createTheme({
