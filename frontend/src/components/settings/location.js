@@ -16,6 +16,7 @@ import {
     Select,
     MenuItem,
 } from "@mui/material";
+import MainAppBar from '../homepage/mainmenu';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -23,7 +24,9 @@ const Location = (props) => {
     const theme = useTheme();
 
     return (
+        
         <div style={{ height: 400, width: '100%' }}>
+                      <MainAppBar/>
             <Stack direction="column" alignItems="center" sx={{ padding: 2 }}></Stack>
             <Typography align='center' variant="h2" sx={{ fontWeight: 500 }}>
                 Location and Privacy Preferences

@@ -14,6 +14,8 @@ import {
 import { useTheme } from "@mui/material";
 import axios from "axios";
 import PasswordChecklist from "react-password-checklist";
+import MainAppBar from '../homepage/mainmenu';
+
 
 const Hobbies = (props) => {
 
@@ -55,6 +57,7 @@ const Hobbies = (props) => {
 
   return (
     <div>
+                <MainAppBar/>
       <Typography align="center" variant="h3">
         Choose 5 Hobbies
       </Typography>

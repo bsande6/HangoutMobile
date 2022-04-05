@@ -2,6 +2,7 @@ import React, { useState }  from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 
 import {Stack, Typography, Box, Button} from '@mui/material'
+import MainAppBar from './mainmenu';
 
 // fetch('http://localhost:8000/get_friends_list')
 //         .then(response => response.json())
@@ -70,6 +71,7 @@ const Friends = (props) => {
   return (
     
     <div style={{ height: 400, width: '100%' }}>
+      <MainAppBar/>
         <Stack direction="column" alignItems="center" sx={{padding : 2}}></Stack>
         <Typography align='center' variant="h2" sx={{ fontWeight: 500 }}>
          My Friends

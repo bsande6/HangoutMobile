@@ -9,6 +9,7 @@ import {
 import { useTheme } from "@mui/material";
 import axios from "axios";
 import {Link} from 'react-router-dom';
+import MainAppBar from '../homepage/mainmenu';
 
 const EditProfile = (props) => {
 
@@ -46,6 +47,7 @@ const EditProfile = (props) => {
 
       return (
         <div>
+          <MainAppBar/>
           <h1> Edit Profile </h1>
           <Stack spacing={2} sx={{ width: "50vw" }}>
               <InputLabel>First Name</InputLabel>
