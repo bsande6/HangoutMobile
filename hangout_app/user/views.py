@@ -21,5 +21,15 @@ def get_friends_list(request):
     except:
         return HttpResponse(status=400)
 
+@api_view(['GET'])
+def get_friend_status(request, uname):
+    uname = User.objects.get(username=uname)
+    try:
+        status = uname.status
+        return HttpResponse(status, status=200)
+    
+    except:
+        return HttpResponse(status=400)
+
     
     

@@ -34,5 +34,6 @@ urlpatterns = [
     path('send_friend_request/<int:userID>/', friend_views.send_friend_request),
     path('accept_friend_request/<int:requestID>/', friend_views.accept_friend_request),
     path('get_friends_list/', user_views.get_friends_list),
+    path('get_friend_status/<int:username>', user_views.get_friend_status),
 ]
 
