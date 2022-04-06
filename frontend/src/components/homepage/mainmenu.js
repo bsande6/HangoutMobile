@@ -1,4 +1,48 @@
-import * as React from "react";
+import React from "react";
+import {
+    AppBar,
+    Toolbar,
+    CssBaseline,
+    Typography,
+    Stack,
+} from "@mui/material";
+import { Link } from "react-router-dom";
+
+const MainAppBar = () => {
+
+    return (
+        <AppBar >
+            <CssBaseline />
+            <Toolbar>
+                <Stack direction="row" spacing={4} align="right">
+                    <Link to="/feed">
+                        Home
+                    </Link>
+                    <Link to="/friends">
+                        Friends
+                    </Link>
+                    <Typography variant="h4">
+                        Hangout App
+                    </Typography>
+                    <Link to="/profile">
+                        Profile
+                    </Link>
+                    <Link to="/editprofile">
+                        Settings
+                    </Link>
+                    <Link to="/">
+                        Logout
+                    </Link>
+                </Stack>
+            </Toolbar>
+        </AppBar>
+    );
+}
+export default MainAppBar;
+
+
+
+/*import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,6 +55,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import {Link} from 'react-router-dom';
 const pages = ["Feed", "Friends"];
 const settings = ["Profile", "Settings", "Logout"];
 
@@ -73,7 +118,8 @@ const MainAppBar = () => {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                    <Typography textAlign="center">{page}
+                                    </Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -84,7 +130,7 @@ const MainAppBar = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
                     >
-                    Hangout
+                        Hangout
                     </Typography>
                     <Box sx={{ flexGrow: 1, alignItems: 'center', padding: 1, display: { xs: "none", md: "flex" } }}>
                         {pages.map((page) => (
@@ -99,7 +145,6 @@ const MainAppBar = () => {
                             </Button>
                         ))}
                     </Box>
-
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -120,8 +165,7 @@ const MainAppBar = () => {
                                 horizontal: "right",
                             }}
                             open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
+                            onClose={handleCloseUserMenu}>
                             <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
                             <MenuItem onClick={handleCloseUserMenu}>Settings</MenuItem>
                             <MenuItem onClick={logout}>Logout</MenuItem>
@@ -133,3 +177,4 @@ const MainAppBar = () => {
     );
 };
 export default MainAppBar;
+*/
