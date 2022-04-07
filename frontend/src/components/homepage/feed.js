@@ -32,7 +32,7 @@ const Feed = () => {
             <Typography align='center' variant="h4" sx={{ fontWeight: 500 }}>
                 My Feed
             </Typography>
-            <Stack direction="column" alignItems="center" sx={{ padding: 2 }}></Stack>
+            <Stack direction="column" align="center" justify="center" spacing={2} sx={{ width: "50vw" }}></Stack>
             <CssBaseline />
             <main>
                 <Container sx={{ py: 0 }} maxWidth="md">

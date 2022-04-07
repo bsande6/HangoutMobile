@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 import { DataGrid } from '@mui/x-data-grid';
-
+import { Link } from 'react-router-dom';
 import {Stack, Typography, Box, Button} from '@mui/material'
 import MainAppBar from './mainmenu';
 
@@ -19,14 +19,17 @@ const Friends = (props) => {
       field: "Profile",
       renderCell: (cellValues) => {
         return (
+          <Link to="/friendprofile">
           <Button
             variant="contained"
             color="primary"
           >
             View
           </Button>
+          </Link>
         );
-      }
+      },
+      width: 150
     },
     {
       field: "Remove Friend",
@@ -39,12 +42,12 @@ const Friends = (props) => {
             Remove
           </Button>
         );
-      }
+      },
+      width: 150
     }
   ];
 
-  
-  // const [state, setState] = useState({friends:""});
+  /* const [state, setState] = useState({friends:""});
   const [state, setState] = useState({})
   async function friends() {
     const friends = await fetch('http://localhost:8000/get_friends_list')
@@ -52,21 +55,20 @@ const Friends = (props) => {
       .then(response => {setState(response)})
   }
     
-    // .then(response => {setState({response})});
-  // friends()
-  // console.log(response)
+  .then(response => {setState({response})});
+  friends()
+  console.log(response)
   console.log(state[0])
   const rows = []
   for (var i =0; i < state.length; i++) {
     state[i].fields.id = i
     rows.push(state[i].fields)
-  }
+  } */
 
-  
-  // const rows = [
-  //   { id: 1, first: state[0].firstname, last: 'Biden', status: 'available', dateSince: '6/15/21'},
-  //   { id: 2, first: 'Kamala', last: 'Harris', status: 'busy', dateSince: '4/6/20'},
-  // ];
+  const rows = [
+     { id: 1, first: 'Joe', last: 'Biden', status: 'available', dateSince: '6/15/21'},
+     { id: 2, first: 'Kamala', last: 'Harris', status: 'busy', dateSince: '4/6/20'},
+   ];
 
   return (
     

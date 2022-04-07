@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import Typography from "@mui/material/Typography";
 import MainAppBar from './mainmenu';
 
-const Profile = (props) => {
+const FriendProfile = (props) => {
     const theme = useTheme()
     const [user, setUser] = useState({
         firstname: "",
@@ -51,7 +51,7 @@ const Profile = (props) => {
         <div style={{ height: 400, width: '100%' }}>
             <MainAppBar />
             <Stack align="center" justify="center" spacing={2} sx={{ width: "50vw" }}>
-                <h1> My Profile </h1>
+                <h1> Profile </h1>
                 <InputLabel>First Name</InputLabel>
                 <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}></Box>
                 <InputLabel>Last Name</InputLabel>
@@ -60,20 +60,17 @@ const Profile = (props) => {
                 <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}></Box>
                 <InputLabel>Phone Number</InputLabel>
                 <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}></Box>
-                <Stack direction="row" spacing={2}>
-                    <Link to="/EditProfile">
-                        <Button variant="contained">Edit Profile</Button>
-                    </Link>
-                    <Link to="/location">
-                        <Button variant="contained"> Edit Location Preferences </Button>
-                    </Link>
-                    <Link to="/hobbies">
-                        <Button variant="contained"> Edit Hobbies </Button>
-                    </Link>
-                </Stack>
+                <Link to="/friends">
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                    >
+                        Remove Friend
+                    </Button>
+                </Link>
             </Stack>
         </div>
     )
 }
 
-export default Profile;
+export default FriendProfile;

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const MainAppBar = () => {
 
     return (
-        <AppBar >
+        <AppBar position="static">
             <CssBaseline />
             <Toolbar>
                 <Stack direction="row" spacing={4} align="right">
