@@ -12,8 +12,9 @@ import EditProfile from "./components/settings/editprofile";
 import Hobbies from "./components/settings/hobbies";
 import Location from "./components/settings/location";
 import Feed from "./components/homepage/feed";
-import Post from "./components/status/post";
+import Post from "./components/homepage/post";
 import FriendProfile from "./components/homepage/friendprofile";
+import Status from "./components/status/setstatus";
 
 function App() {
   const theme = createTheme({
@@ -58,6 +59,7 @@ function App() {
           <Route path="/post" element={<Post/>} />
           <Route path="/feed" element={<Feed/>} />
           <Route path="/friendprofile" element={<FriendProfile/>} />
+          <Route path="/setstatus" element={<Status/>} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
