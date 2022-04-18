@@ -15,6 +15,8 @@ import Feed from "./components/homepage/feed";
 import Post from "./components/homepage/post";
 import FriendProfile from "./components/homepage/friendprofile";
 import Status from "./components/status/setstatus";
+import GiveActivity from "./components/homepage/activity";
+
 
 function App() {
   const theme = createTheme({
@@ -60,6 +62,7 @@ function App() {
           <Route path="/feed" element={<Feed/>} />
           <Route path="/friendprofile" element={<FriendProfile/>} />
           <Route path="/setstatus" element={<Status/>} />
+          <Route path="/activity" element={<GiveActivity/>} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

@@ -33,6 +33,9 @@ const MainAppBar = () => {
                     <Link to="/editprofile">
                         Settings
                     </Link>
+                    <Link to="/activity">
+                        Activity
+                    </Link>
                     <Link to="/">
                         Logout
                     </Link>
