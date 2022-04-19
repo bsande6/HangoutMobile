@@ -18,7 +18,7 @@ const MainAppBar = () => {
                     <Link to="/feed">
                         Home
                     </Link>
-                    <Link to="/setstatus">
+                    <Link to="/calendar">
                         My Status
                     </Link>
                     <Link to="/friends">
