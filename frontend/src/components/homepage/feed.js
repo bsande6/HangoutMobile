@@ -1,4 +1,41 @@
-import React from 'react';
+import * as React from 'react';
+import axios from "axios";
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { useTheme } from '@emotion/react';
+import {
+    Box,
+    Stack,
+    Button,
+    Input,
+    InputLabel,
+    Typography,
+    Tab,
+    Tabs,
+    Select,
+    MenuItem,
+} from "@mui/material";
+import MainAppBar from '../homepage/mainmenu';
+
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+const Feed = (props) => {
+    const theme = useTheme();
+
+    return (
+        <div style={{ height: 400, width: '100%' }}>
+                      <MainAppBar/>
+            <Stack direction="column" alignItems="center" sx={{ padding: 2 }}></Stack>
+            <Typography align='center' variant="h2" sx={{ fontWeight: 500 }}>
+                test feed
+            </Typography>
+        </div>
+    );
+};
+export default Feed;
+
+/* import React from 'react';
 import { Link } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
 import {
@@ -86,4 +123,4 @@ const Feed = () => {
 
     );
 }
-export default Feed;
+export default Feed; */

@@ -35,7 +35,7 @@ import Create from '@mui/icons-material/Create';
 import MainAppBar from '../homepage/mainmenu';
 import { Stack } from "@mui/material";
 
-import { events } from "./events";
+import { events } from "../../mockdata/events";
 
 const PREFIX = 'Demo';
 const classes = {
