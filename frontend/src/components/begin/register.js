@@ -27,7 +27,6 @@ const Register = (props) => {
     hashed: "",
     password: "",
   });
-  const [view, setView] = useState("driver");
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
 
