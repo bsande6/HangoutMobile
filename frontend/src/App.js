@@ -16,6 +16,8 @@ import Post from "./components/homepage/post";
 import FriendProfile from "./components/homepage/friendprofile";
 import GiveActivity from "./components/homepage/activity";
 import Demo from "./components/status/setcalendar";
+import FriendCalendar from "./components/status/viewcalendar";
+import Caltest from "./components/tests/caltest";
 
 
 function App() {
@@ -61,8 +63,8 @@ function App() {
           <Route path="/post" element={<Post/>} />
           <Route path="/feed" element={<Feed/>} />
           <Route path="/friendprofile" element={<FriendProfile/>} />
-          <Route path="/activity" element={<GiveActivity/>} />
           <Route path="/calendar" element={<Demo/>} />
+          <Route path="/test" element={<Caltest/>} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

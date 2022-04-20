@@ -17,6 +17,9 @@ import {
     MenuItem,
 } from "@mui/material";
 import MainAppBar from '../homepage/mainmenu';
+import { Link } from 'react-router-dom';
+import FriendCalendar from '../status/viewcalendar';
+import GiveActivity from './activity';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -25,11 +28,46 @@ const Feed = (props) => {
 
     return (
         <div style={{ height: 400, width: '100%' }}>
-                      <MainAppBar/>
-            <Stack direction="column" alignItems="center" sx={{ padding: 2 }}></Stack>
-            <Typography align='center' variant="h2" sx={{ fontWeight: 500 }}>
-                test feed
-            </Typography>
+            <MainAppBar />
+            <Stack direction="column" alignItems="center" sx={{ padding: 2 }}>
+                <GiveActivity></GiveActivity>
+                <Stack direction="row" alignItems="center" sx={{ padding: 2 }}>
+                    <Box sx={{ border: 1, borderRadius: 3, margin: 2, padding: 2, paddingBottom: 2 }}>
+                        <Stack direction="column" spacing={2} alignItems="center" sx={{ padding: 2 }}>
+                            <Typography variant="h5" sx={{ fontWeight: 500 }}>
+                                {" "}
+                                Friends
+                            </Typography>
+                            <Link to="/friends">
+                                <Button variant="contained"> test </Button>
+                            </Link>
+                        </Stack>
+                    </Box>
+                    <Box sx={{ border: 1, borderRadius: 3, margin: 2, padding: 2, paddingBottom: 2 }}>
+                        <Stack direction="column" spacing={2} alignItems="center" sx={{ padding: 2 }}>
+                            <Typography variant="h5" sx={{ fontWeight: 500 }}>
+                                {" "}
+                                Friends
+                            </Typography>
+                            <Link to="/friends">
+                                <Button variant="contained"> test </Button>
+                            </Link>
+                        </Stack>
+                    </Box>
+                    <Box sx={{ border: 1, borderRadius: 3, margin: 2, padding: 2, paddingBottom: 9 }}>
+                        <Stack direction="column" spacing={2} alignItems="center" sx={{ padding: 2 }}>
+                            <Typography variant="h5" sx={{ fontWeight: 500 }}>
+                                {" "}
+                                Friends
+                            </Typography>
+                            <Link to="/friends">
+                                <Button variant="contained"> test </Button>
+                            </Link>
+                        </Stack>
+                    </Box>
+                </Stack>
+                <FriendCalendar></FriendCalendar>
+            </Stack>
         </div>
     );
 };
@@ -117,7 +155,7 @@ const Feed = () => {
                         ))}
                     </Grid>
                 </Container>
-                
+
             </main>
         </div>
 
