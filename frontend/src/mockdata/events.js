@@ -45,11 +45,6 @@ export const events = [
       endDate: new Date(2018, 5, 27, 16, 30),
       id: 8,
     }, {
-      title: 'Available',
-      startDate: new Date(2018, 5, 28, 11, 0),
-      endDate: new Date(2018, 5, 28, 12, 0),
-      id: 9,
-    }, {
       title: 'Busy',
       startDate: new Date(2018, 5, 28, 11, 0),
       endDate: new Date(2018, 5, 28, 13, 30),

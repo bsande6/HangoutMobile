@@ -12,13 +12,9 @@ import EditProfile from "./components/settings/editprofile";
 import Hobbies from "./components/settings/hobbies";
 import Location from "./components/settings/location";
 import Feed from "./components/homepage/feed";
-import Post from "./components/homepage/post";
 import FriendProfile from "./components/homepage/friendprofile";
-import GiveActivity from "./components/homepage/activity";
-import Demo from "./components/status/setcalendar";
-import FriendCalendar from "./components/status/viewcalendar";
+import Calendar from "./components/status/setcalendar";
 import Caltest from "./components/tests/caltest";
-
 
 function App() {
   const theme = createTheme({
@@ -60,10 +56,9 @@ function App() {
           <Route path="/editprofile" element={<EditProfile/>} />
           <Route path="/hobbies" element={<Hobbies/>} />
           <Route path="/location" element={<Location/>} />
-          <Route path="/post" element={<Post/>} />
           <Route path="/feed" element={<Feed/>} />
           <Route path="/friendprofile" element={<FriendProfile/>} />
-          <Route path="/calendar" element={<Demo/>} />
+          <Route path="/calendar" element={<Calendar/>} />
           <Route path="/test" element={<Caltest/>} />
         </Routes>
       </ThemeProvider>

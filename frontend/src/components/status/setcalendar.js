@@ -34,6 +34,11 @@ import CalendarToday from '@mui/icons-material/CalendarToday';
 import Create from '@mui/icons-material/Create';
 import MainAppBar from '../homepage/mainmenu';
 import { Stack } from "@mui/material";
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 import { events } from "../../mockdata/events";
 
@@ -98,6 +103,32 @@ const StyledFab = styled(Fab)(({ theme }) => ({
         right: theme.spacing(4),
     },
 }));
+
+function AvailabilitySelect() {
+    const [title, setTitle] = React.useState('');
+  
+    const handleChange = (event) => {
+        setTitle(event.target.value);
+    };
+  
+    return (
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="title">Type</InputLabel>
+          <Select
+            labelId="title"
+            id="title"
+            value={title}
+            label="title"
+            onChange={handleChange}
+          >
+            <MenuItem value={1}>Available</MenuItem>
+            <MenuItem value={2}>Busy</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+    );
+  }
 
 class AppointmentFormContainerBasic extends React.PureComponent {
     constructor(props) {
@@ -178,6 +209,12 @@ class AppointmentFormContainerBasic extends React.PureComponent {
             inputFormat: 'DD/MM/YYYY HH:mm',
             onError: () => null,
         });
+        const dropDownProps = field => ({
+            onChange: ({ target: change }) => this.changeAppointment({
+                field: [field], changes: change.value,
+            }),
+            value: displayAppointmentData[field] || ''
+        })
         const startDatePickerProps = pickerEditorProps('startDate');
         const endDatePickerProps = pickerEditorProps('endDate');
         const cancelChanges = () => {
@@ -203,9 +240,9 @@ class AppointmentFormContainerBasic extends React.PureComponent {
                     <div className={classes.content}>
                         <div className={classes.wrapper}>
                             <Create className={classes.icon} color="action" />
-                            <TextField
-                                {...textEditorProps('title')}
-                            />
+                            <AvailabilitySelect>
+                                <dropDownProps></dropDownProps>
+                            </AvailabilitySelect>
                         </div>
                         <div className={classes.wrapper}>
                             <CalendarToday className={classes.icon} color="action" />
@@ -259,7 +296,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
     }
 }
 
-export default class Demo extends React.PureComponent {
+export default class Calendar extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -420,11 +457,11 @@ export default class Demo extends React.PureComponent {
                         onClose={this.cancelDelete}
                     >
                         <DialogTitle>
-                            Delete Appointment
+                            Delete
                         </DialogTitle>
                         <DialogContent>
                             <DialogContentText>
-                                Are you sure you want to delete this appointment?
+                                Are you sure you want to delete this event?
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
@@ -455,17 +492,3 @@ export default class Demo extends React.PureComponent {
         );
     }
 }
-
-/*
-
-const Status = () => {
-    return (
-        <div style={{ height: 400, width: '100%' }}>
-            <MainAppBar />
-            <Stack align="center" justify="center" spacing={2} sx={{ width: "50vw" }}>
-                <h1> this is where users can edit their calendar </h1>
-            </Stack>
-        </div>
-    );
-}
-export default Status */
