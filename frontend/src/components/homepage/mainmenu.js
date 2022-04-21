@@ -25,16 +25,13 @@ const MainAppBar = () => {
                         Friends
                     </Link>
                     <Typography variant="h4">
-                        Hangout App
+                        Hangout
                     </Typography>
                     <Link to="/profile">
                         Profile
                     </Link>
                     <Link to="/editprofile">
                         Settings
-                    </Link>
-                    <Link to="/activity">
-                        Activity
                     </Link>
                     <Link to="/">
                         Logout

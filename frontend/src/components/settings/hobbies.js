@@ -6,8 +6,15 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MainAppBar from '../homepage/mainmenu';
-import { Typography, Box, Button } from '@mui/material';
+import { Typography, Box, Button, Stack, Grid } from '@mui/material';
 import axios from "axios";
+import account from '../../mockdata/account';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -52,6 +59,8 @@ export default function MultipleSelect() {
   const theme = useTheme()
   const [user, setUserHobbies] = React.useState([]);
 
+  const cards = [1];
+
   const config = {
     headers: {
       "Authorization": `Key key=123456789`,
@@ -61,7 +70,7 @@ export default function MultipleSelect() {
       "Expires": '0'
     }
   }
-  
+
   const handleSubmit = (event) => {
     console.log(JSON.stringify(user));
     axios
@@ -82,6 +91,27 @@ export default function MultipleSelect() {
   return (
     <div>
       <MainAppBar />
+      <Stack direction="column" alignItems="center" sx={{ padding: 2 }}></Stack>
+      <CssBaseline />
+      <Stack align="center" justify="center" spacing={1} sx={{ width: "50vw" }}>
+        <h1> Current Hobbies </h1>
+        <Container sx={{ py: 0 }} maxWidth="md">
+          <Grid container spacing={2}>
+            {cards.map((card) => (
+              <Grid item key={card} md={16}>
+                <Card
+                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                >
+                  <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {account.hobbies}
+                      </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       <Typography align="center" variant="h3">
         Choose 5 Hobbies
       </Typography>
@@ -117,6 +147,7 @@ export default function MultipleSelect() {
           Done
         </Button>
       </Box>
+      </Stack>
     </div>
   );
 }

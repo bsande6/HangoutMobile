@@ -12,6 +12,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import Typography from "@mui/material/Typography";
 import MainAppBar from './mainmenu';
+import account from "../../mockdata/account";
 
 const Profile = (props) => {
     const theme = useTheme()
@@ -53,13 +54,13 @@ const Profile = (props) => {
             <Stack align="center" justify="center" spacing={2} sx={{ width: "50vw" }}>
                 <h1> My Profile </h1>
                 <InputLabel>First Name</InputLabel>
-                <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}></Box>
+                <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}>{account.firstname}</Box>
                 <InputLabel>Last Name</InputLabel>
-                <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}></Box>
+                <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}>{account.lastname}</Box>
                 <InputLabel>Email</InputLabel>
-                <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}></Box>
+                <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}>{account.email}</Box>
                 <InputLabel>Phone Number</InputLabel>
-                <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}></Box>
+                <Box component="span" sx={{ p: 4, border: '1px dashed grey' }}>{account.phone}</Box>
                 <Stack direction="row" spacing={2}>
                     <Link to="/EditProfile">
                         <Button variant="contained">Edit Profile</Button>
