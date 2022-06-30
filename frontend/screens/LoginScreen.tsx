@@ -1,12 +1,38 @@
-import { StyleSheet, Image, TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Image, TextInput, Alert, TouchableOpacity} from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps, RootStackScreenProps } from '../types';
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Context, Provider } from '../components/globalContext';
+
 
 export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'>) {
+  const globalContext = useContext(Context)
+
+  function authenticate(email, password) {
+
+    fetch(`${globalContext.domain}/api/auth/login/`, {
+      method: 'POST',
+      body: JSON.stringify({ "email": email, "password": password}),
+      headers:  {'Content-Type': 'application/json',  'Accept': 'application/json',},    
+    })
+      .then(res => {
+        if (res.ok) {
+          navigation.navigate("Root")
+          return res.json()
+        }
+        else {
+          Alert.alert("Invalid username or password")
+          throw res.json()
+        }
+      }).catch(error=> {
+        console.log("error")
+      });
+  }
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Hangout</Text>
@@ -14,7 +40,7 @@ export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Email."
+          placeholder="Email or Username."
           placeholderTextColor="#003f5c"
           onChangeText={(email) => setEmail(email)}
         />
@@ -28,7 +54,8 @@ export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'
           onChangeText={(password) => setPassword(password)}
         />
       </View>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Root')}>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => authenticate(email, password)}>
+      {/* navigation.navigate('Root') */}
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
 
@@ -100,6 +127,10 @@ const styles = StyleSheet.create({
 
   loginText:  {
     fontSize: 20,
+    fontWeight: 'bold',
+  },
+  errorText:  {
+    fontSize: 15,
     fontWeight: 'bold',
   },
 });
