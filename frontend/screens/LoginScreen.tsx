@@ -9,25 +9,26 @@ import { Context, Provider } from '../components/globalContext';
 export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'>) {
   const globalContext = useContext(Context)
 
-  function authenticate(email, password) {
+  async function authenticate(email, password) {
 
-    fetch(`${globalContext.domain}/api/auth/login/`, {
+    let res = await fetch(`${globalContext.domain}/api/auth/login/`, {
       method: 'POST',
       body: JSON.stringify({ "email": email, "password": password}),
       headers:  {'Content-Type': 'application/json',  'Accept': 'application/json',},    
     })
-      .then(res => {
-        if (res.ok) {
-          navigation.navigate("Root")
-          return res.json()
-        }
-        else {
-          Alert.alert("Invalid username or password")
-          throw res.json()
-        }
-      }).catch(error=> {
+    try {
+      if (res.ok) {
+        navigation.navigate("Root")
+        return res.json()
+      }
+      else {
+        Alert.alert("Invalid username or password")
+        throw res.json()
+      }
+    }
+    catch(error) {
         console.log("error")
-      });
+     }
   }
 
   const [email, setEmail] = useState("");
@@ -55,7 +56,6 @@ export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'
         />
       </View>
       <TouchableOpacity style={styles.loginBtn} onPress={() => authenticate(email, password)}>
-      {/* navigation.navigate('Root') */}
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
 
