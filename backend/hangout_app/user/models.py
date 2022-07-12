@@ -6,14 +6,14 @@ from phone_field import PhoneField
 
 class UserManager(BaseUserManager):
 
-    def create_user(self, username, email, password=None, **kwargs):
+    def create_user(self, username, email, firstname, lastname, phone_number, password=None, **kwargs):
         """Create and return a `User` with an email, phone number, username and password."""
         if username is None:
             raise TypeError('Users must have a username.')
         if email is None:
             raise TypeError('Users must have an email.')
 
-        user = self.model(username=username, email=self.normalize_email(email))
+        user = self.model(username=username, email=self.normalize_email(email), firstname=firstname, lastname=lastname, phone_number=phone_number)
         user.set_password(password)
         user.save(using=self._db)
 
@@ -47,7 +47,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     friends = models.ManyToManyField("User", blank=True)
-    status = models.BooleanField(default=False)
+    
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'firstname', 'lastname']
@@ -63,5 +63,14 @@ class User(AbstractBaseUser, PermissionsMixin):
             return User.objects.get(pk=user_id) # <-- must be primary key and number
         except User.DoesNotExist:
             return None
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(default='default_profile_picture.jfif', upload_to='profile_images')
+    status = models.BooleanField(default=False)
+    #bio = models.TextField()
+
+    def __str__(self):
+        return self.user.username
 
 

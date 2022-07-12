@@ -1,4 +1,4 @@
-from .models import User
+from .models import User, Profile
 from rest_framework import serializers
 from django.core.exceptions import ObjectDoesNotExist
 import json
@@ -7,7 +7,7 @@ import json
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'is_active', 'phone_number', 'firstname', 'lastname', 'friends', 'status']
+        fields = ['id', 'username', 'email', 'is_active', 'phone_number', 'firstname', 'lastname', 'friends']
         read_only_field = ['is_active']
 
     def update(self, instance, validated_data):
@@ -16,6 +16,21 @@ class UserSerializer(serializers.ModelSerializer):
         instance.created = validated_data.get('created', instance.created)
         instance.save()
         return instance
+
+class ProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer(many=False, read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = ['user', 'status', 'avatar']
+    
+    # def get_items(self):
+    #     print("here")
+    #     items = Profile.objects.all()
+    #     print(items)
+    #     serializer = ProfileSerializer(instance=items, many=True)
+    #     print(serializer.data)
+    #     return serializer.data
 
 
 class FriendsSerializer(serializers.Serializer):
@@ -29,6 +44,11 @@ class FriendsSerializer(serializers.Serializer):
     def __init__(self, *args, **kwargs):
         super(FriendsSerializer, self).__init__(*args, **kwargs)
         friends = serializers.serialize("json",args)
+
+    
+
+
+
         
         #self.fields['friends'] = 
        

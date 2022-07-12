@@ -22,10 +22,10 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    re_path(r'^test-delete/$', auth_views.test_delete),
-    re_path(r'^test-session/$', auth_views.test_session),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
@@ -33,10 +33,11 @@ urlpatterns = [
     #url(r'^register/$', views.register, name='register'),
     re_path(r'^api/auth/register/$', auth_views.registerview),
     re_path(r'^api/auth/login/$', auth_views.loginview),
+    re_path(r'^api/auth/logout/$', auth_views.loginview),
     path('send_friend_request/<int:userID>/', friend_views.send_friend_request),
     path('accept_friend_request/<int:requestID>/', friend_views.accept_friend_request),
     path('get_friends_list/', user_views.get_friends_list),
     path('get_friend_status/<int:username>', user_views.get_friend_status),
     path('get_all_users/', user_views.get_all_users),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

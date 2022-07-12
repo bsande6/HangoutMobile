@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-from django.contrib.auth import login, get_user_model
+from django.contrib.auth import login, get_user_model, logout
 #from hangout_app.user.models import User
 
 @api_view(['POST'])
@@ -41,10 +41,9 @@ def loginview(request):
         
         return HttpResponse(serializer.errors['non_field_errors'], status=400)
 
-def test_session(request):
-    request.session.set_test_cookie()
-    return HttpResponse("Testing session cookie")
-
+@api_view(['PUT'])
+def logout_view(request):
+    logout(request)
 
 def test_delete(request):
     if request.session.test_cookie_worked():
