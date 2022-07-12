@@ -1,5 +1,5 @@
 import React, {useEffect, useLayoutEffect, useState, useContext} from 'react';
-import { SafeAreaView, StyleSheet ,FlatList, TouchableOpacity, Pressable, Image, TextInput} from 'react-native';
+import { SafeAreaView, StyleSheet ,FlatList, TouchableOpacity, Pressable, Image, TextInput, ActivityIndicator} from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootStackScreenProps } from '../types';
@@ -9,6 +9,7 @@ import Contacts from 'react-native-contacts';
 import { FontAwesome, AntDesign } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
+import { useSafeAreaFrame } from 'react-native-safe-area-context';
 // import filter from 'lodash.filter';
 
 export default function AddFriends({ navigation }: RootStackScreenProps<'AddFriends'>) {
@@ -18,12 +19,16 @@ export default function AddFriends({ navigation }: RootStackScreenProps<'AddFrie
     firstname: string
     lastname: string
     phone_number: string
+    avatar: string
   }
   
   const globalContext = useContext(Context)
+  const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [filteredData, setFilteredData] = useState<UserData[]>([]);
   const [masterData, setMasterData] = useState<UserData[]>([]);
+  const [error, setError] = useState(null);
+
 
   async function all_users() { 
     let res = await fetch(`${globalContext.domain}/get_all_users`, {
@@ -31,53 +36,40 @@ export default function AddFriends({ navigation }: RootStackScreenProps<'AddFrie
     })
     try {
       if (res.ok) {
-        console.log("here")
         let resJson = await res.json();
-        console.log(typeof resJson)
-        console.log("z", resJson)
-        // resJson = JSON.parse(resJson);
-        // const data = resJson as UserData[];
-        let user: UserData
-        let userData: Array<UserData>
-        userArray = []
-        // const userData= jsonArray.map(res => (res.json() as FruitsType));
-        var data;
-        for (var object in resJson)  {
-          console.log(object)
-          user = resJson[object] as UserData
-          console.log("data", user)
-          userData.push({'username': resJson[object].username, 'firstname':resJson[object].firstname, 
-                        'lastname':resJson[object].lastname, 'email':resJson[object].email, 
-                        'phone_number':resJson[object].phone_number
-          console.log(userData)
-        }
-
-        setMasterData(userData); // 3
-        console.log("m", masterData)
+        console.log(resJson)
+        setMasterData(resJson.map((data:UserData) => ({
+          'username': data.user.username,
+          'email': data.user.email,
+          'firstname': data.user.firstname,
+          'lastname': data.user.lastname,
+          'phone_number': data.user.phone_number,
+          'avatar': data.avatar
+        })))
+        setIsLoading(false);
         return resJson
       }
       else {
-        console.log("there")
         const body = await res.text()
         console.log(body)
+        setIsLoading(false);
         throw res
       }
     }
     catch (error) {
-      console.log("error") 
-      console.error(error)
+      setIsLoading(false);
+      setError(error)
     }
   }
-  
-  
+
   useEffect(() => {
+    setIsLoading(true);
     all_users();
   }, []);
 
-  
+  console.log(masterData)
 
-
-  const filterSearch = (text) => {
+  const filterSearch = (text:string) => {
     // Check if searched text is not blank
     if (text) {
       // Inserted text is not blank
@@ -97,6 +89,13 @@ export default function AddFriends({ navigation }: RootStackScreenProps<'AddFrie
       // setSearch(text);
     }
   };
+
+  const data = [
+    { id: '1', title: 'First item', username: 'name', firstname: 'first', lastname: 'last' },
+    { id: '2', title: 'Second item', username: 'name2', firstname: 't', lastname: 'last'  },
+    { id: '3', title: 'Third item', username: 'name3', firstname: 'third', lastname: 'last'},
+    { id: '4', title: 'Fourth item',username: 'name4', firstname: 'firt', lastname: 'last'  }
+  ];
 
   const ItemView = ({ item }) => {
     return (
@@ -122,6 +121,29 @@ export default function AddFriends({ navigation }: RootStackScreenProps<'AddFrie
     );
   };
 
+  function renderHeader() {
+    return (
+      <View
+        style={{
+          backgroundColor: '#fff',
+          padding: 10,
+          marginVertical: 10,
+          borderRadius: 20
+        }}
+      >
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          clearButtonMode="always"
+          value={search}
+          onChangeText={searchText => filterSearch(searchText)}
+          placeholder="Search by Username"
+          style={{ backgroundColor: '#fff', paddingHorizontal: 50 }}
+        />
+      </View>
+    );
+  }
+
   const getItem = (item) => {
     // Function for click on an item
     alert('Id : ' + item.id + ' Title : ' + item.title);
@@ -140,55 +162,50 @@ export default function AddFriends({ navigation }: RootStackScreenProps<'AddFrie
   // }  
 
 
-  //   const keyExtractor = (item, idx) => {
-  //     return item?.recordID?.toString() || idx.toString();
-  //   };
-  //   const renderItem = ({item, index}) => {
-  //     return <Contact contact={item} />;
-  //   };
-  function renderHeader() {
+  const keyExtractor = (item, idx) => {
+    return item?.recordID?.toString() || idx.toString();
+  };
+  const renderItem = ({item, index}) => {
+    return <Contact contact={item} />;
+  };
+
+  if (isLoading) {
     return (
-      <View
-        style={{
-          backgroundColor: '#fff',
-          padding: 10,
-          marginVertical: 10,
-          borderRadius: 20
-        }}
-      >
-        <TextInput
-          autoCapitalize="none"
-          autoCorrect={false}
-          clearButtonMode="always"
-          value={search}
-          onChangeText={searchText => filterSearch(searchText)}
-          placeholder="Search"
-          style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
-        />
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color="#5500dc" />
       </View>
     );
   }
-    
+
+  if (error) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 18}}>
+          Error fetching data... Check your network connection!
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <FlatList
           ListHeaderComponent={renderHeader}
-          data={filteredData}
-          keyExtractor={(item, index) => index.toString()}
-          ItemSeparatorComponent={ItemSeparatorView}
+          data={masterData}
+          keyExtractor={item => item.username}
           renderItem={({ item }) => (
-            <View style={styles.listItem}>
-              {/* <Image
-                source={{ uri: item.picture.thumbnail }}
-                style={styles.coverImage}
-              /> */}
-              <View style={styles.metaInfo}>
-                <Text style={styles.title}>{`${item.firstname} ${
-                  item.lastname
-                }`}</Text>
-              </View>
+          <View style={styles.listItem}>
+            <Image
+              source={require("../assets/images/default_profile_picture.png")}
+              style={styles.coverImage}
+            />
+            <View style={styles.metaInfo}>
+              <Text style={styles.title}>{`${item.firstname} ${
+                item.lastname
+              }`}</Text>
             </View>
+          </View>
           )}
         />
       </View>
@@ -230,6 +247,9 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 8
+  },
+  metaInfo: {
+    marginLeft: 10
   },
 })
 

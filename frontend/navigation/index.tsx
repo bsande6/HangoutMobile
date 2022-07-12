@@ -46,7 +46,27 @@ function RootNavigator() {
       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Profile" component={ProfileScreen} options={({navigation}) => ({
+          headerTitle: 'Profile',
+          headerStyle: {
+            shadowColor: 'transparent', // this covers iOS
+            elevation: 0, // this covers Android
+          },
+          headerShadowVisible: false,
+          headerLeft: () => (
+                  <Pressable
+                    onPress={() => navigation.navigate('Root')}
+                    style={({ pressed }) => ({
+                      opacity: pressed ? 0.5 : 1,
+                    })}>
+                    <AntDesign
+                      name="back"
+                      size={35}
+                      style={{ marginLeft: 0 }}
+                    />
+                  </Pressable>
+                ),
+        })} />
       <Stack.Screen name="AddFriends" component={AddFriendsScreen} options={({navigation}) => ({
           headerTitle: 'Find Friends',
           headerStyle: {
