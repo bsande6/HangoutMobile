@@ -4,7 +4,6 @@ import { Text, View } from '../components/Themed';
 import { RootTabScreenProps, RootStackScreenProps } from '../types';
 import React, { useContext, useState } from "react";
 import { Context, Provider } from '../components/globalContext';
-import LoginScreen from './LoginScreen';
 
 export default function SignUpScreen({ navigation }: RootStackScreenProps<'SignUp'>) {
   const globalContext = useContext(Context)

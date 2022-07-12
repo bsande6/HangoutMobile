@@ -1,0 +1,1 @@
+default_app_config = 'hangout_app.friends.apps.FriendsConfig'
