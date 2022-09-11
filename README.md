@@ -62,7 +62,7 @@ Hangout App makes it much easier to get an organized view of who is available wi
 
 In this app, users can set their status depending on their availability in addition to viewing the status of their friends list. Add friends directly from your contacts
 
-This project is for CPSC 4720 at Clemson University.
+This project is an extension of a course project.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -82,16 +82,48 @@ This project is for CPSC 4720 at Clemson University.
 
 ### Built With
 
-* [React.js](https://reactjs.org/)
-* mySQL
+* React-native
+* expo Go
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 ## Getting Started
+Navigate to the HangoutMobile repository
 
-to add instructions on setting up your project locally
+To set up the environment run
+pip install -r requirements.txt
+
+To install node 16 run 
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt install -y nodejs
+
+You can check the installation with 
+node -v
+  8.15.0
+
+npm -v
+  v16.17.0
+
+To start the frontend
+
+cd frontend
+
+npm install expo-cli
+npm start
+
+From here you can press 'w' to open the app in the browser or download the expo app to view it on mobile.
+
+To start the backend in a new terminal navigate to the backend folder and run
+
+python manage.py runserver 0.0.0.0:8000
+
+Run the command ifconfig to determine your ip
+
+In frontend/components/globalContext.js adjust the domain to your ip address
+In backend/hangout_app/settings.py add the ip to the allowed hosts
+
 
 ### Prerequisites
 
