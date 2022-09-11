@@ -31,15 +31,13 @@ export default function AddFriends({ navigation }: RootStackScreenProps<'AddFrie
     })
     try {
       if (res.ok) {
-        console.log("here")
         let resJson = await res.json();
-        console.log(typeof resJson)
-        console.log("z", resJson)
+        
         // resJson = JSON.parse(resJson);
         // const data = resJson as UserData[];
         let user: UserData
-        let userData: Array<UserData>
-        userArray = []
+        let userData: Array<UserData> = []
+        
         // const userData= jsonArray.map(res => (res.json() as FruitsType));
         var data;
         for (var object in resJson)  {
@@ -49,22 +47,20 @@ export default function AddFriends({ navigation }: RootStackScreenProps<'AddFrie
           userData.push({'username': resJson[object].username, 'firstname':resJson[object].firstname, 
                         'lastname':resJson[object].lastname, 'email':resJson[object].email, 
                         'phone_number':resJson[object].phone_number
-          console.log(userData)
+                      })
+           
         }
-
-        setMasterData(userData); // 3
+        setMasterData(userData);
         console.log("m", masterData)
         return resJson
       }
       else {
-        console.log("there")
         const body = await res.text()
         console.log(body)
         throw res
       }
     }
     catch (error) {
-      console.log("error") 
       console.error(error)
     }
   }
